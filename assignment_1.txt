@@ -1,0 +1,197 @@
+
+     Javascript-Questions
+
+
+
+(1)11“‘’                             
+    y += Typeof F;</span>
+    }
+    console.log(y);
+
+
+---->Error
+
+(2)When should I use the Arrow function in Javascript?
+---->
+
+(3)Explain the Prototype with example
+---->
+      -In JavaScript, every function and object has a property named prototype by default.
+      -Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+        In this article, we explain what a prototype is, how prototype chains work, and how a prototype for an object can be set.
+
+
+(4)What is the difference between .forEach loop and .map loop?
+---->
+           forEach()
+
+     -The forEach() method does not returns a  new array based on the given array.
+     -The forEach() method returns “undefined“.
+     -The forEach() method doesn’t return anything hence the method chaining 
+      technique cannot be applied here. 
+     -It is not executed for empty elements.
+
+
+      
+           map()
+
+
+      -The map() method returns an entirely new array.
+      - The map() method returns the newly created array according to
+        the provided callback function.
+      -With the map() method, we can chain other methods like, reduce(),sort() etc.
+      -It does not change the original array.
+
+
+(5)What is a constructor in javascript? Explain with examples.
+---->A constructer  is a spacial function that creates and initialization 
+    an Object  instance of a class.
+
+      function demo(fname,lname)
+    {
+        this.fname = fname;
+        this.lname = lname;
+    }
+    // console.log(demo("john","doe")); //undifine
+    const data=new demo("john","doe")
+    console.log(data);
+
+    console.log(data.fname);
+    console.log(data.lname);
+
+
+(6)What is the role of closure in javascript?
+---->Closure means that an inner function always has access to the vars and parameters of 
+    its outer function, even after the outer function has returned,
+
+    -closures are created every time a function is created, at function creation time.
+
+
+(7)What is the output of below code?
+var array = ["DataFlair", 2019, 1.0, true];
+        var msg = "Array: [";
+        for(var i = 0; i < array.length-1; i++){
+            msg += array[i] + ", ";
+        }                              
+    
+    msg += array[array.length-1] + "]";
+            console.log(msg);
+
+---->
+
+       Array:[DataFlair,2019,1,true]
+
+
+(8)What is meant by “this” in javascript?
+---->
+      - The this keyword refers to an object.
+      -Which object depends on how this is being invoked (used or called).
+      -The this keyword refers to different objects depending on how it is used:
+
+
+(9)How to validate a form in javascript?
+---->Web forms are used to collect user's information such as name,
+     email address, location, age, and so on. But sometimes users do not enter
+     the expected details. So it is crucial to validate the form data before sending it to the server-side. 
+     For form validation, client-side JavaScript can help us.
+
+
+(10)What are object prototypes?
+---->
+      -All JavaScript objects inherit properties and methods from a prototype.
+      -The Object.prototype is on the top of the prototype inheritance chain:
+      -Date objects inherit from Date.prototype
+
+(11)What is the rest parameter?
+---->The rest parameter is an improved way to handle function parameters, 
+     allowing us to more easily handle various inputs as parameters in a function.
+     The rest parameter syntax allows us to represent an indefinite number of arguments
+     as an array. With the help of a rest parameter, a function can be called with any 
+     number of arguments, no matter how it was defined. Rest parameter is added in ES2015
+     or ES6 which improved the ability to handle parameter.
+
+(12)What is the use of promises in javascript?
+----> 
+       -Promise are used to handle asynchronous operations in javascript.
+
+(13)What are classes in javascript?
+---->
+    -class is a templete for javascript objects.
+    -Classes are similar to functions. Here, a class keyword is
+     used instead of a function keyword. Unlike functions classes in JavaScript are
+     not hoisted. The constructor method is used to initialize. The class name is user-defined.
+
+    Syntax:
+
+        class classname {
+              constructor(parameter) {
+                 this.classname = parameter;
+                 }
+               }
+
+
+
+
+
+
+                           MODULE: 2 (JavaScript Essentials)
+
+
+
+
+
+
+(1)Calculate subtotal price of quantity in JavaScript?
+---->
+                   
+
+
+(2)What is JavaScript Output method?
+---->
+      -JavaScript Output defines the ways to display the output of a given code.
+      -1. innerHTML: It is used to access an element. It defines the HTML content.
+      -2. document.write(): It is used for testing purpose. 
+      -3. window.alert(): It displays the content using an alert box. 
+      -4. console.log(): It is used for debugging purposes. 
+      -5. window.prompt() :- it Allows to take input from user
+      
+
+
+(3)How to used JavaScript Output method?
+----->
+      
+
+       <h1>GeeksforGeeks</h1>
+            <h2>
+         JavaScript Display Possibilities
+           Using innerHTML
+            </h2>
+         <p id="GFG"></p>
+
+       <!-- Script to use innerHTML -->
+         <script>
+         document.getElementById("GFG").innerHTML
+	    = 10 * 2;
+         </script>
+
+(4)How to used JavaScript Events to do all examples?
+---->Events are things that happen in the system you are programming — the system produces (or "fires") a 
+    signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically 
+    taken (that is, some code running) when the event occurs. Events are fired inside the browser window, and tend
+    to be attached to a specific item that resides in it. This might be a single element, a set of elements, the HTML
+    document loaded in the current tab, or the entire browser window. There are many different types of events that can occur.
+
+
+   For example:
+
+      The user selects, clicks, or hovers the cursor over a certain element.
+      The user chooses a key on the keyboard.
+      The user resizes or closes the browser window.
+      A web page finishes loading.
+      A form is submitted.
+      A video is played, paused, or ends.
+      An error occurs
+
+
+			
+
