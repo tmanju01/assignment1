@@ -1,0 +1,162 @@
+
+      MODULE: 4 (List and Hooks)
+
+
+Explain Life cycle in Class Component and functional component with Hooks.
+---->
+
+     Class Component Lifecycle 
+
+     -The three phases are: Mounting, Updating, and Unmounting.
+     -Mounting
+      Mounting means putting elements into the DOM.
+
+        React has four built-in methods that gets called, in this order, when mounting a component:
+
+          1.constructor()
+          2.getDerivedStateFromProps()
+          3.render()
+          4.componentDidMount()
+         The render() method is required and will always be called, the others are optional and will be called if you define them.
+
+   
+
+          Updating
+              The next phase in the lifecycle is when a component is updated.
+
+              A component is updated whenever there is a change in the component's state or props.
+
+             React has five built-in methods that gets called, in this order, when a component is updated:
+
+                1.getDerivedStateFromProps()
+                2.shouldComponentUpdate()
+                3.render()
+                4.getSnapshotBeforeUpdate()
+                5.componentDidUpdate()
+   
+      
+         Unmounting
+                 The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
+
+                   React has only one built-in method that gets called when a component is unmounted:
+
+                   1.componentWillUnmount()
+
+class-based component:
+   
+
+class MyInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { input: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ input: e.target.value });
+  }
+
+  render() {
+    return (
+      <input
+        type="text"
+        value={this.state.input}
+        onChange={this.handleChange}
+      />
+    );
+  }
+}
+
+
+Converting this to a functional component with useState eliminates a lot of code and makes things cleaner and shorter.
+ Here's what the above component looks like with the useState hook. If you’ve read a React tutorial over the past 2 years,
+ chances are you’ve seen some syntax like this.
+
+
+import { useState } from 'react';
+
+
+function MyInput(props) {
+	const [input, setInput] = useState('');
+
+	return (
+		<input
+			value={input}
+			onChange={e => setInput(e.target.value)}
+		/>
+	)
+}
+
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // this component has multiple items in the state object
+    this.state = {
+      count: 0,
+      counterWeight: 1,
+      themeMode: "light"
+    };
+
+    // ...
+  }
+
+  // ...
+
+  render() {
+    return (
+      <div class={this.state.themeMode}>
+      	...
+      </div>
+    );
+  }
+}
+
+
+
+You might be tempted at first to use one useState hook, and build some sort of dictionary to hold all of this state.
+ But React allows you to have multiple useState hooks within a functional component. So instead of one single object, 
+you can set each item of the state object into its own state:
+
+
+function MyComponent(props) {
+	const [count, setCount] = useState(0);
+	const [counterWeight, setCounterWeight] = useState(1);
+	const [themeMode, setThemeMode] = useState('light');
+
+	// the rest of the code...
+
+	return (
+		<div>
+			...
+		</div>
+	)
+}
+With a lot of different “types” of state this can obviously get verbose, so exercise judgment for larger components.
+
+useEffect
+As with the render() method of a class-based component, the main body of a functional component should be kept pure. With the useEffect hook,
+ you're able to create side effects while maintaining the component's purity. Within this hook, you can send network requests, make subscriptions,
+ and change the state value.
+import { useEffect } from 'react';
+
+
+function MyComponent(props) {
+	// ...
+
+	useEffect(() => {
+		const { subscribe } = props.store;
+		const unsubscribe = subscribe(...);
+		return unsubscribe
+	}, []);
+
+	return 
+}
+
+The two most commonly used default hooks are useState and useEffect which are used to handle stateful data in a functional component and for creating side effects within. 
+useEffect works similarly to the three lifecycle methods: componentDidMount, componentDidUpdate, and componentWillUnmount.
+
+
+   
