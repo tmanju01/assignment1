@@ -1,0 +1,14 @@
+
+         MODULE: 7 (React – Applying Redux)
+
+
+
+(1)What is Redux?
+-->Redux is a JavaScript framework or library.
+
+
+(2)What is Redux Thunk used for?
+-->
+
+
+
