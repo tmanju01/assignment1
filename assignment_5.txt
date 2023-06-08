@@ -8,7 +8,124 @@
 
 
 (2)What is Redux Thunk used for?
--->
+-->Thunk is a logical concept in programming where you
+   deal with a function that is primarily used to
+   delay the calculation or evaluation of any operation.
+                                  
+(3)What is Pure Component? When to use Pure Component over Component?
+---> A React component is considered pure if it renders the same output for the same state 
+     and props. For this type of class component, React provides the PureComponent base 
+     class. Class components that extend the React. PureComponent class are treated as pure components.
+
+(4)What is the second argument that can optionally be passed tosetState and what is
+its purpose?
+--->The second parameter to setState() is an optional callback function that will be executed
+    once setState is completed and the component is re-rendered. componentDidUpdate should be used 
+   instead to apply such logic in most cases.
+
+(5) Create a Table and Search data from table using React Js?
+--->
+
+   -----------index.jsx-----------
 
 
+     import React from 'react';
+     import ReactDOM from 'react-dom/client';
+     import './index.css';
+     // import App from './App';
+     import reportWebVitals from './reportWebVitals';
+     import 'bootstrap5/src/css/bootstrap.min.css'
+     import Table from './compo/Table';
 
+     const root = ReactDOM.createRoot(document.getElementById('root'));
+     root.render(
+     <React.StrictMode>
+      <Table/>
+      {/* <App /> */}
+     </React.StrictMode>
+     );
+
+     // If you want to start measuring performance in your app, pass a function
+     // to log results (for example: reportWebVitals(console.log))
+     // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+     reportWebVitals();
+
+
+  ----------- Table.jsx--------------
+
+
+   import React, { useState } from 'react';
+
+function Table(props) {
+   const dummydata=[
+    {id:1,name:'manju',lastname:'Thakor',email:'manju@gmail.com'},
+    {id:2,name:'poonam',lastname:'Thakor',email:'poonam1@gmail.com'},
+    {id:3,name:'niku',lastname:'patel',email:'niku@gmail.com'},
+    {id:4,name:'shivu',lastname:'Thakor',email:'shivu@gmail.com'},
+   ]
+
+   const [value,setValue] = useState(' ')
+   const [dataSource,setdataSource]=useState(dummydata);
+   const [tablefilter,settablefilter]=useState([]);
+   const filterData = (e)=>{
+    if(e.target.value != " "){
+        setValue(e.target.value);
+        const filterTable = dataSource.filter(o=>Object.keys(o).some
+        (k=>String(o[k]).toLowerCase().includes(e.target.value.toLowerCase())))
+        settablefilter([...filterTable])
+                                       
+    }
+    else{
+        setValue(e.target.value);
+        setdataSource([...dataSource])
+    }
+   }
+
+    return (
+        <>
+           <div className="container mt-5">
+           <div class="input-group mb-3">
+  {/* <span class="input-group-text" id="basic-addon1">@</span> */}
+  <input type="text" class="form-control"  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"value={value} onChange={filterData}/>
+</div>
+           <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {value.length > 0 ? tablefilter.map((data)=>{
+        return (
+            <tr>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.lastname}</td>
+                <td>{data.email}</td>
+            </tr>
+        )
+    })
+    :
+    dataSource.map((data)=>{
+        return (
+            <tr>
+                <td>{data.id}</td>
+                <td>{data.name}</td>
+                <td>{data.lastname}</td>
+                <td>{data.email}</td>
+            </tr>
+        )
+    })
+
+}
+  </tbody>
+</table>
+            </div> 
+        </>
+    );
+}
+
+export default Table;
